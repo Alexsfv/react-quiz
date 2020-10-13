@@ -3,6 +3,8 @@ import is from 'is_js'
 import classes from './Auth.css'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
+import {connect} from 'react-redux'
+import {auth} from '../../store/actions/auth'
 
 class Auth extends React.Component {
 
@@ -104,10 +106,19 @@ class Auth extends React.Component {
   }
 
   loginHandler = () => {
-
+    this.props.auth(
+      this.state.formControls.email.value,
+      this.state.formControls.password.value,
+      true
+    )
   }
 
   registerHandler = () => {
+    this.props.auth(
+      this.state.formControls.email.value,
+      this.state.formControls.password.value,
+      false
+    )
     
   }
 
@@ -144,4 +155,9 @@ class Auth extends React.Component {
   }
 }
 
-export default Auth
+function mapDispatchToProps(dispatch) {
+  return {
+    auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+  }
+}
+export default connect(null, mapDispatchToProps)(Auth)

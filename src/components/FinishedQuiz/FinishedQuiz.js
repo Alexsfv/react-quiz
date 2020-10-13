@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 
 const FinishedQuiz = props => {
-    console.log(props)
     const successCount = Object.keys(props.results).reduce((total, key) => {
         if (props.results[key] === 'success') {
             return ++total
