@@ -119,7 +119,6 @@ class Auth extends React.Component {
       this.state.formControls.password.value,
       false
     )
-    
   }
 
   render() {

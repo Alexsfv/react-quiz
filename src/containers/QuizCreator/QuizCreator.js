@@ -74,7 +74,7 @@ class QuizCreator extends React.Component {
 
   }
 
-  createQuizHandler = event => {
+  createQuizHandler = async event => {
     event.preventDefault()
 
     this.setState({

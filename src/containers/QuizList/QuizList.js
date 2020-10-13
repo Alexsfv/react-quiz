@@ -1,11 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import axios from '../../axios/axios-quiz'
 import classes from './QuizList.css'
 import Loader from '../../components/UI/Loader/Loader'
 import {connect} from 'react-redux'
 import {fetchQuizes} from '../../store/actions/quiz'
 
 class QuizList extends React.Component {
+
+  state = {
+    quizes: [],
+    loading: true,
+  }
 
   renderQuizes() {
     return this.props.quizes.map(quiz => {
